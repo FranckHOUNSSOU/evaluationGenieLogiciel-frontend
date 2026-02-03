@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Form, Button, Card, Alert, Spinner, Badge } from "react-bootstrap";
+import { Container, Form, Button, Card, Alert, Spinner } from "react-bootstrap";
 import { authService } from "../../services/authService";
 import { mockAuthService } from "../../services/mockAuthService";
 import { USE_MOCK_API } from "../../config/env";
@@ -90,14 +90,6 @@ const Register = () => {
 			<Container className="d-flex justify-content-center align-items-center min-vh-100">
 				<Card className="register-card shadow-lg">
 					<Card.Body className="p-5">
-						{USE_MOCK_API && (
-							<div className="text-center mb-3">
-								<Badge bg="warning" text="dark" className="mb-2">
-									⚠️ MODE DÉMO
-								</Badge>
-								<p className="small text-muted">Données d'exemple · Veuillez créer un nouveau compte</p>
-							</div>
-						)}
 						<div className="text-center mb-4">
 							<h1 className="register-title fw-bold">S'inscrire</h1>
 							<p className="text-muted">Créez votre compte pour commencer</p>

@@ -1,7 +1,9 @@
-import { Container, Row, Col, Card, ProgressBar } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { Container, Row, Col, Card, ProgressBar, Button } from "react-bootstrap";
 import "./Statistics.css";
 
 const Statistics = () => {
+	const navigate = useNavigate();
 	const stats = {
 		totalSales: 12500,
 		totalPurchases: 8750,
@@ -23,7 +25,20 @@ const Statistics = () => {
 	return (
 		<div className="page-content">
 			<Container fluid className="px-4">
-				<h1 className="page-title mb-4">📈 Statistiques</h1>
+				<Row className="mb-4">
+					<Col md={8}>
+						<h1 className="page-title">📈 Statistiques</h1>
+					</Col>
+					<Col md={4} className="text-end">
+						<Button
+							variant="outline-secondary"
+							size="sm"
+							onClick={() => navigate("/dashboard")}
+						>
+							🏠 Accueil
+						</Button>
+					</Col>
+				</Row>
 
 				{/* Main Stats Cards */}
 				<Row className="mb-4 g-3">

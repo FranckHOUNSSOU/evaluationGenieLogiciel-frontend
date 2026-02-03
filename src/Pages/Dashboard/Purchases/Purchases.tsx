@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Table,
@@ -15,6 +16,7 @@ import { purchaseService } from "../../../services/purchaseService";
 import "./Purchases.css";
 
 const Purchases = () => {
+  const navigate = useNavigate();
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [stats, setStats] = useState<PurchaseStats>({
     totalSpent: 0,
@@ -112,10 +114,18 @@ const Purchases = () => {
     <div className="page-content">
       <Container fluid className="px-4">
         <Row className="mb-4">
-          <Col md={8}>
+          <Col md={6}>
             <h1 className="page-title">🛒 Historique des Achats</h1>
           </Col>
-          <Col md={4} className="text-end">
+          <Col md={6} className="text-end">
+            <Button
+              variant="outline-secondary"
+              size="sm"
+              className="me-2"
+              onClick={() => navigate("/dashboard")}
+            >
+              🏠 Accueil
+            </Button>
             <Button variant="success" size="lg" onClick={handleShowModal}>
               ➕ Ajouter un achat
             </Button>
